@@ -1,41 +1,62 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Main {
 
-    private static void line() {
-        System.out.println("* * *");
+    private static void line(String line) {
+        System.out.println("--- " + line.toUpperCase() + " ---");
     }
 
     public static void main(String[] args) {
 
         EmployeeBook employeeBook = new EmployeeBook();
 
-        EmployeeBook.getEmployees()[0] = new Employee("Ivan", 1, 10000);
-        EmployeeBook.getEmployees()[1] = new Employee("Petr", 2, 20000);
-        EmployeeBook.getEmployees()[2] = new Employee("Mike", 3, 11000);
-        EmployeeBook.getEmployees()[3] = new Employee("David", 4, 15000);
-        EmployeeBook.getEmployees()[4] = new Employee("Jack", 5, 12000);
-        EmployeeBook.getEmployees()[5] = new Employee("Jane", 1, 18000);
-        EmployeeBook.getEmployees()[6] = new Employee("Bob", 2, 15000);
-        EmployeeBook.getEmployees()[7] = new Employee("John", 3, 16000);
-        EmployeeBook.getEmployees()[8] = new Employee("Mike", 4, 17000);
-        EmployeeBook.getEmployees()[9] = new Employee("David", 5, 13000);
+        Employee employee = new Employee("Ivan", 1, 10000);
+        Employee employee1 = new Employee("Petr", 2, 20000);
+        Employee employee2 = new Employee("Mike", 3, 11000);
+        Employee employee3 = new Employee("David", 4, 15000);
+        Employee employee4 = new Employee("Jack", 5, 12000);
+        Employee employee5 = new Employee("Jane", 1, 18000);
+        Employee employee6 = new Employee("Bob", 2, 15000);
+        Employee employee7 = new Employee("John", 3, 16000);
+        Employee employee8 = new Employee("Mike", 4, 17000);
+        Employee employee9 = new Employee("Sam", 5, 13000);
 
+        line("добавление сотрудников");
+        employeeBook.addEmployee(employee);
+        employeeBook.addEmployee(employee1);
+        employeeBook.addEmployee(employee5);
+        employeeBook.addEmployee(employee9);
+        employeeBook.addEmployee(employee3);
+        line("вывод в консоль");
         employeeBook.print();
-        line();
+        line("удаление сотрудника по id");
+        employeeBook.deleteEmployeeById(2);
+        line("вывод в консоль");
+        employeeBook.print();
+        line("добавление сотрудника");
+        employeeBook.addEmployee(employee4);
+        line("вывод в консоль");
+        employeeBook.print();
+        line("заполнение всего массива");
+        employeeBook.addEmployee(employee6);
+        employeeBook.addEmployee(employee7);
+        employeeBook.addEmployee(employee8);
+        employeeBook.addEmployee(employee9);
+        employeeBook.addEmployee(employee5);
+        line("только имена");
         employeeBook.printFullName();
-        line();
+        line("сумма всех зарплат");
         System.out.println(employeeBook.sumSalary());
-        line();
+        line("максмальная зарплата");
         System.out.println(employeeBook.findEmployeeWithMaxSalary());
-        line();
+        line("минимальная зарплата");
         System.out.println(employeeBook.findEmployeeWithMinSalary());
-        line();
+        line("средняя зарплата");
         System.out.println(employeeBook.averageSalary());
+        line("поиск по id");
+        System.out.println(employeeBook.findEmployeeById(9));
+
     }
-
-
-
-
-
 
 
 }

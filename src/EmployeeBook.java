@@ -60,5 +60,32 @@ public class EmployeeBook {
         return sumSalary() / EMPLOYEES.length;
     }
 
+    public void addEmployee(Employee employee) {
+        for (int i = 0; i < EMPLOYEES.length; i++) {
+            if (EMPLOYEES[i] == null) {
+                EMPLOYEES[i] = employee;
+                return;
+            }
+        }
+        System.out.println("Вакансий нет");
+    }
 
+    public Employee findEmployeeById(int id) {
+        for (int i = 0; i < EMPLOYEES.length; i++) {
+            if (EMPLOYEES[i].getId() == id) {
+                return EMPLOYEES[i];
+            }
+        }
+        return null;
+    }
+
+    public void deleteEmployeeById(int id) {
+        for (int i = 0; i < EMPLOYEES.length; i++) {
+            if (EMPLOYEES[i].getId() == id) {
+                EMPLOYEES[i] = null;
+                return;
+            }
+        }
+        System.out.println("Сотрудников нет");
+    }
 }
